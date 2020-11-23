@@ -15,10 +15,10 @@ Aditya's cool slack bot with cool features
 
   shows a dog pic
 
-  + **adi-bot show (n) cats** where (n) is an integer between 1 and a 100
+  + **adi-bot show (n) cats** where (n) is an integer between 1 and 3
 
   shows n cat pics
  
-  + **adi-bot show (n) dogs** where (n) is an integer between 1 and a 100
+  + **adi-bot show (n) dogs** where (n) is an integer between 1 and 3
 
   shows n dog pics
