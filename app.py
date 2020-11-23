@@ -67,7 +67,7 @@ def adibot_show_service(message, say):
             img_block = {"type": "image", "image_url":cat_image_url, "alt_text": "cat image"} 
             blocks.append(img_block)
 
-        text_block = {"type":"section", "text": {"type":"mrkdwn", "text":f"here are {num} a cat pics"}}
+        text_block = {"type":"section", "text": {"type":"mrkdwn", "text":f"here are {num} cat pics"}}
         blocks.append(text_block)
 
         say(blocks=blocks)
