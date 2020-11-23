@@ -61,8 +61,8 @@ def adibot_show_service(message, say):
             say(f"{num} could not be converted into an integer")
             return
 
-        if num > 100 or num < 1:
-            say(f"the number (what you've said as {num}) should be between 1 and a 100")
+        if num > 3 or num < 1:
+            say(f"the number (what you've said as {num}) should be between 1 and a 3")
             return
 
         resp = requests.get(f"https://api.thecatapi.com/v1/images/search?limit={num}", headers={"x-api-key":config['CAT_API_KEY']})
@@ -96,8 +96,8 @@ def adibot_show_service(message, say):
             say(f"{num} could not be converted into an integer")
             return
 
-        if num > 100 or num < 1:
-            say(f"the number (what you've said as {num}) should be between 1 and a 100")
+        if num > 3 or num < 1:
+            say(f"the number (what you've said as {num}) should be between 1 and a 3")
             return
 
         resp = requests.get(f"https://api.thedogapi.com/v1/images/search?limit={num}", headers={"x-api-key":config['DOG_API_KEY']})
