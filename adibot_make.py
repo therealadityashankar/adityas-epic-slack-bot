@@ -11,7 +11,7 @@ def adibot_make_service(message, say, words):
             if joke["error"]:
                 say("there was an error getting the joke !")
                 return
-            say("if the joke is problamatic or has issue, please file a issue on {config['github']}, this is still a beta feature being worked")
+            say(f"if the joke is problamatic or has issue, please file a issue on {config['github']}, this is still a beta feature being worked")
             say(joke_to_text(joke))
 
         if len(words) == 4:
@@ -42,7 +42,7 @@ see {config['github']} how to use the function")
             blocks = [cmb(joke_to_text(joke) + seperator) for joke in jokes]
             blocks = [cmb("here are a few jokes:")] + blocks
 
-            say("if the joke is problamatic or has issue, please file a issue on {config['github']}, this is still a beta feature being worked")
+            say(f"if the joke is problamatic or has issue, please file a issue on {config['github']}, this is still a beta feature being worked")
             say(blocks=blocks)
     else:
         say(f"could not understand the command, {message['text']}, see {config['github']} for all adi-bot commands")
