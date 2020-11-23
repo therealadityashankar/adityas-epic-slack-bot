@@ -8,6 +8,7 @@ import requests
 from slack_bolt import App
 from config import config
 from adibot_show import adibot_show_service
+from adibot_make import adibot_make_service
 
 # Initializes your app with your bot token and signing secret
 app = App(token=config["token"], signing_secret=config["signing_secret"])
@@ -18,18 +19,21 @@ def adibotservice(message, say):
     text = message["text"].strip()
     words = [word.strip() for word in text.split(" ") if word.strip() != ""]
 
-    if not text.startswith("adi-bot"):
+    if not words[0] == "adi-bot":
         return
 
-    if text == "adi-bot":
+    if len(words) == 1:
         say(
             "you can see all of adi-bot's features at its docs at \
 https://github.com/therealadityashankar/adityas-epic-slack-bot"
         )
         return
 
-    elif text.startswith("adi-bot show"):
+    elif words[1] == "show":
         return adibot_show_service(message, say, words)
+
+    elif words[1] == "make":
+        return adibot_make_service(message, say, words)
 
     else:
         say(f"I could not understand the command `{text}`")

@@ -1,10 +1,11 @@
 from config import config
+from block_helper import create_img_block, create_markdown_block
 import requests
 
 
 def adibot_show_service(message, say, words):
     if len(words) == 2:
-        github_url = "https://github.com/therealadityashankar/adityas-epic-slack-bot"
+        github_url = config['github']
         say("to see a list of options of what adi-bot can" + "show, see" + github_url)
 
     elif len(words) == 3:
@@ -57,15 +58,6 @@ the number (what you've said as {num}) should be between 1 and 3"
         blocks = [create_img_block(pic["url"], alt) for pic in images]
         blocks.append(create_markdown_block(text))
         say(blocks=blocks)
-
-
-def create_img_block(url, alt):
-    return {"type": "image", "image_url": url, "alt_text": alt}
-
-
-def create_markdown_block(text):
-    return {"type": "section", "text": {"type": "mrkdwn", "text": text}}
-
 
 def get_dog_images(count):
     resp = requests.get(

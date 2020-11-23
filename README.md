@@ -22,3 +22,15 @@ Aditya's cool slack bot with cool features
   + **adi-bot show (n) dogs** where (n) is an integer between 1 and 3
 
   shows n dog pics
+
+- **adi-bot make**
+
+  returns a message pointing to this doc
+
+  + **adi-bot make joke**
+  
+  returns a joke
+
+  + **adi-bot make (n) jokes** where (n) is an integer between 2 and 6
+
+  makes n jokes
