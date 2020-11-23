@@ -14,12 +14,6 @@ with open("config.yaml") as f:
         signing_secret=config['signing_secret']
     )
 
-@app.message("what is")
-def say_hello(message, say):
-    user = message['user']
-    if user == "WC8S2N2BX" or user == "W0155TCBVUP":
-        say(f"look at this person asking stupid questions `{message['text']}`")
-
 @app.message("adi-bot")
 def adibotservice(message, say):
     text = message['text'].strip()
