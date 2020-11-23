@@ -3,12 +3,6 @@ import requests
 
 
 def adibot_show_service(message, say, words):
-    begin = "adi-bot show"
-    text = message["text"].strip()
-
-    # removes begin string and an additional space after that
-    resttext = text[len(begin) + 1 :]
-
     if len(words) == 2:
         github_url = "https://github.com/therealadityashankar/adityas-epic-slack-bot"
         say("to see a list of options of what adi-bot can" + "show, see" + github_url)
