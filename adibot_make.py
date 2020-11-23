@@ -17,7 +17,8 @@ def adibot_make_service(message, say, words):
             try:
                 num = int(words[-2])
             except ValueError:
-                say(f"could not convert {num} into an integer")
+                say(f"could not convert {words[-2]} into an integer,\
+see {config['github']} how to use the function")
                 return
 
             if num == 1:
