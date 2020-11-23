@@ -27,10 +27,10 @@ Aditya's cool slack bot with cool features
 
   returns a message pointing to this doc
 
-  + **adi-bot make joke**
+  + **adi-bot make becareful--joke**
   
   returns a joke
 
-  + **adi-bot make (n) jokes** where (n) is an integer between 2 and 6
+  + **adi-bot make (n) becareful--jokes** where (n) is an integer between 2 and 6
 
   makes n jokes
