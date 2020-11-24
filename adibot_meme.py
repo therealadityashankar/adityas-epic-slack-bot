@@ -49,7 +49,7 @@ def adibot_meme_service(message, say, words):
     filepath = f"/tmp/meme-{_rand_id}.jpg"
     correct_meme_id = meme["identifier"]
     create_meme(correct_meme_id, text_strs, filepath)
-    blob = bucket.blob(f"/memes/meme-{_rand_id}.jpg")
+    blob = bucket.blob(f"memes/meme-{_rand_id}.jpg")
     blob.upload_from_filename(filepath)
     blob.make_public()
     os.remove(filepath)
