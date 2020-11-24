@@ -5,10 +5,11 @@ from meme_maker_9000.meme import create_meme
 import random
 import string
 import json
+import yaml
 import os
 
-with open("./meme_maker_9000/memes.json") as f:
-    meme_formats = json.load(f)
+with open("./meme_maker_9000/memes.yaml") as f:
+    meme_formats = yaml.safe_load(f)
     memes_by_id = {}
     for fn, item in meme_formats.items():
         memes_by_id[item["identifier"]] = item
