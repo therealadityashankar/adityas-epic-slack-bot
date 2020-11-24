@@ -10,8 +10,9 @@ import os
 with open("./meme_maker_9000/memes.json") as f:
     meme_formats = json.load(f)
     memes_by_id = {}
-    for fn, meme in meme_formats.items():
-        memes_by_id[meme["identifier"]] = meme
+    for fn, item in meme_formats.items():
+        memes_by_id[item["identifier"]] = item
+        memes_by_id[item["identifier"].lower()] = item
 
 def adibot_meme_service(message, say, words):
     if len(words) == 2:
@@ -22,6 +23,11 @@ def adibot_meme_service(message, say, words):
     storage_client = storage.Client()
     bucket_name = "adi-bot-bucket"
     text_strs = text.split("|")[1:]
+
+    if len(text_strs) == 0:
+        say(f"You've not added any text input for the meme !, see {config['github']} for how to properly use this service !")
+        return
+
     if text_strs[-1] == "": text_strs.pop()
     bucket = storage_client.get_bucket(bucket_name)
 
@@ -30,7 +36,8 @@ def adibot_meme_service(message, say, words):
         say(f"Could you check if you wrote the meme name correctly ?, see https://github.com/therealadityashankar/meme-maker-9000/blob/main/meme-samples.md for all possible meme names, there is no format called {meme_id}")
         return
 
-    texts_req = len(memes_by_id[meme_id]["text_points"])
+    meme = memes_by_id[meme_id]
+    texts_req = len(meme["text_points"])
 
     if not len(text_strs) == texts_req:
         say(f"Text strs length mismatch !, we need {texts_req} texts, you've provided us with {len(text_strs)} texts")
@@ -39,7 +46,8 @@ def adibot_meme_service(message, say, words):
     randomer = random.SystemRandom()
     for i in range(20): _rand_id += randomer.choice(string.digits)
     filepath = f"/tmp/meme-{_rand_id}.jpg"
-    create_meme(meme_id, text_strs, filepath)
+    correct_meme_id = meme["identifier"]
+    create_meme(correct_meme_id, text_strs, filepath)
     blob = bucket.blob(f"/memes/meme-{_rand_id}.jpg")
     blob.upload_from_filename(filepath)
     blob.make_public()
