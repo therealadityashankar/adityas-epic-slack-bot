@@ -9,6 +9,8 @@ from slack_bolt import App
 from config import config
 from adibot_show import adibot_show_service
 from adibot_make import adibot_make_service
+from adibot_meme import adibot_meme_service
+
 
 # Initializes your app with your bot token and signing secret
 app = App(token=config["token"], signing_secret=config["signing_secret"])
@@ -34,6 +36,9 @@ https://github.com/therealadityashankar/adityas-epic-slack-bot"
 
     elif words[1] == "make":
         return adibot_make_service(message, say, words)
+
+    elif words[1] == "meme":
+        return adibot_meme_service(message, say, words)
 
     else:
         say(f"I could not understand the command `{text}`")

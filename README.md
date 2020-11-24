@@ -1,6 +1,7 @@
 # adityas-cool-slack-bot
 Aditya's cool slack bot with cool features
 
+
 ### Commands
 
 - **adi-bot show**
@@ -34,3 +35,14 @@ Aditya's cool slack bot with cool features
   + **adi-bot make (n) becareful--jokes** where (n) is an integer between 2 and 6
 
   makes n jokes
+
+- **adi-bot meme**
+
+  returns a message showing you how to meme
+
+  + **adi-bot meme <meme-name> | text 1 | text 2 | ...**
+  
+  create a meme, and show its image publicly, with the pieces of text embedded in it 
+  
+  for references of meme-names see : https://github.com/therealadityashankar/meme-maker-9000/blob/main/meme-samples.md
+  the number of "texts" should be equal to the number of text areas in the above meme
