@@ -40,7 +40,7 @@ Aditya's cool slack bot with cool features
 
   returns a message showing you how to meme
 
-  + **adi-bot meme <meme-name> | text 1 | text 2 | ...**
+  + **adi-bot meme meme-name | text 1 | text 2 | ...**
   
   create a meme, and show its image publicly, with the pieces of text embedded in it 
   
