@@ -28,10 +28,6 @@ Aditya's cool slack bot with cool features
 
   shows n dog pics
 
-  + **adibot show (some image text)**
-
-  shows an image retrieved from pixabay
-
 - **adi-bot meme**
 
   returns a message showing you how to meme
