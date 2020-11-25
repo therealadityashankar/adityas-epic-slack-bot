@@ -4,6 +4,10 @@ Aditya's cool slack bot with cool features
 
 ### Commands
 
+- **adi-bot can be called with either**
+  + **adibot**, or
+  + **adi-bot**
+
 - **adi-bot show**
 
   returns a message pointing to this doc
@@ -20,9 +24,13 @@ Aditya's cool slack bot with cool features
 
   shows n cat pics
  
-  + **adi-bot show (n) dogs** where (n) is an integer between 1 and 3
+  + **adibot show (n) dogs** where (n) is an integer between 1 and 3
 
   shows n dog pics
+
+  + **adibot show (some image text)**
+
+  shows an image retrieved from pixabay
 
 - **adi-bot make**
 
@@ -32,7 +40,7 @@ Aditya's cool slack bot with cool features
   
   returns a joke
 
-  + **adi-bot make (n) becareful--jokes** where (n) is an integer between 2 and 6
+  + **adibot make (n) becareful--jokes** where (n) is an integer between 2 and 6
 
   makes n jokes
 
@@ -40,9 +48,10 @@ Aditya's cool slack bot with cool features
 
   returns a message showing you how to meme
 
-  + **adi-bot meme meme-name | text 1 | text 2 | ...**
+  + **adi-bot meme (meme-name-or-number) | text 1 | text 2 | ...**
   
   create a meme, and show its image publicly, with the pieces of text embedded in it 
   
   for references of meme-names see : https://github.com/therealadityashankar/meme-maker-9000/blob/main/meme-samples.md
+  you may put the name of the meme or the number next to the meme from the above link in the position of *(meme-name-or-number)*
   the number of "texts" should be equal to the number of text areas in the above meme

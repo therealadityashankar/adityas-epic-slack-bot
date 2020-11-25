@@ -1,6 +1,6 @@
 venv
 *.swp
 *.pyc
-config.yaml
+config.zip
 config
 ngrok

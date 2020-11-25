@@ -11,9 +11,10 @@ import os
 with open("./meme_maker_9000/memes.yaml") as f:
     meme_formats = yaml.safe_load(f)
     memes_by_id = {}
-    for fn, item in meme_formats.items():
+    for i, (fn, item) in enumerate(meme_formats.items()):
         memes_by_id[item["identifier"]] = item
         memes_by_id[item["identifier"].lower()] = item
+        memes_by_id[str(i)] = item
 
 def adibot_meme_service(message, say, words):
     if len(words) == 2:
@@ -53,7 +54,6 @@ def adibot_meme_service(message, say, words):
     blob.upload_from_filename(filepath)
     blob.make_public()
     os.remove(filepath)
-    say("This is a beta product and a WIP, I understand its complexity for now")
     say(blob.public_url)
 
 
