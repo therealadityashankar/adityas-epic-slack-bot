@@ -32,18 +32,6 @@ Aditya's cool slack bot with cool features
 
   shows an image retrieved from pixabay
 
-- **adi-bot make**
-
-  returns a message pointing to this doc
-
-  + **adi-bot make becareful--joke**
-  
-  returns a joke
-
-  + **adibot make (n) becareful--jokes** where (n) is an integer between 2 and 6
-
-  makes n jokes
-
 - **adi-bot meme**
 
   returns a message showing you how to meme

@@ -10,7 +10,7 @@ def adibot_show_service(message, say, words):
         github_url = config['github']
         say("to see a list of options of what adi-bot can show, see " + github_url)
 
-    elif len(words) == 3:
+    elif len(words) == 3 and words[-1] in ["cat", "dog"]:
         word = words[-1]
         if word == "cat":
             url = get_cat_images(1)[0]["url"]
@@ -22,16 +22,6 @@ def adibot_show_service(message, say, words):
             alt = "dog image"
             ftext = "here is a dog pic"
 
-        else:
-            url = get_general_pic(word)
-            alt = f"{word} pic"
-            ftext = f"here is a {word} pic"
-            
-            if url is None:
-                say(f"Could not get an image for {word}, because pixabay did not return an image")
-                return
-            
-
         blocks = [
             create_img_block(url, alt),
             create_markdown_block(ftext),
@@ -42,7 +32,7 @@ def adibot_show_service(message, say, words):
             say("this image has been retrieved from pixabay.com")
 
     # basically it ends in cats and it has one word in between
-    elif len(words) == 4:
+    elif len(words) == 4 and words[-1] in ["cats", "dogs"]:
         if words[-1] in ["cats", "dogs"]:
             try:
                 num = int(words[-2])
@@ -69,36 +59,8 @@ def adibot_show_service(message, say, words):
             blocks = [create_img_block(pic["url"], alt) for pic in images]
             blocks.append(create_markdown_block(text))
             say(blocks=blocks)
-        else:
-            search_for = " ".join(words[2:])
-            url = get_general_pic(search_for)
-
-            if url is None:
-                say(f"Could not get an image for {words[-1]}, because pixabay did not return an image")
-                return
-
-            alt = f"{words[-1]} pics"
-            ftext = f"here is a {words[-1]} pic"
-            blocks = [
-                create_img_block(url, alt),
-                create_markdown_block(ftext),
-            ]
-            say(blocks=blocks)
-            say("this image has been retrieved from pixabay.com")
     else:
-        search_for = " ".join(words[2:])
-        url = get_general_pic(search_for)
-        if url is None:
-            say(f"Could not get an image for {words[-1]}, because pixabay did not return an image")
-            return
-        alt = f"{words[-1]} pics"
-        ftext = f"here is a {words[-1]} pic"
-        blocks = [
-            create_img_block(url, alt),
-            create_markdown_block(ftext),
-        ]
-        say(blocks=blocks)
-        say("this image has been retrieved from pixabay.com")
+        say("did you mean `adibot show cat` or `adibot show dog` or `adibot show 3 dogs` or `adibot show 3 cats` or something similar")
 
 
 def get_dog_images(count):

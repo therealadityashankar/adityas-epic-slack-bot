@@ -35,9 +35,6 @@ https://github.com/therealadityashankar/adityas-epic-slack-bot"
     elif words[1] == "show":
         return adibot_show_service(message, say, words)
 
-    elif words[1] == "make":
-        return adibot_make_service(message, say, words)
-
     elif words[1] == "meme":
         return adibot_meme_service(message, say, words)
 
