@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # production url : https://playground-email-1600840828782.uc.r.appspot.com/slack/events
 import os
+import re
 import yaml
 import requests
 
@@ -16,12 +17,12 @@ from adibot_meme import adibot_meme_service
 app = App(token=config["token"], signing_secret=config["signing_secret"])
 
 
-@app.message("adi-bot")
+@app.message(re.compile("(adibot|adi-bot)"))
 def adibotservice(message, say):
     text = message["text"].strip()
     words = [word.strip() for word in text.split(" ") if word.strip() != ""]
 
-    if not words[0] == "adi-bot":
+    if not (words[0] == "adi-bot" or words[0] == "adibot") :
         return
 
     if len(words) == 1:
