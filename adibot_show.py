@@ -8,7 +8,7 @@ import urllib
 def adibot_show_service(message, say, words):
     if len(words) == 2:
         github_url = config['github']
-        say("to see a list of options of what adi-bot can" + "show, see" + github_url)
+        say("to see a list of options of what adi-bot can show, see " + github_url)
 
     elif len(words) == 3:
         word = words[-1]
