@@ -4,6 +4,7 @@ from meme_maker_9000.meme import create_meme
 
 import random
 import string
+import html
 import json
 import yaml
 import os
@@ -49,6 +50,7 @@ def adibot_meme_service(message, say, words):
     for i in range(20): _rand_id += randomer.choice(string.digits)
     filepath = f"/tmp/meme-{_rand_id}.jpg"
     correct_meme_id = meme["identifier"]
+    text_strs = [html.unescape(t) for t in text_strs]
     create_meme(correct_meme_id, text_strs, filepath)
     blob = bucket.blob(f"memes/meme-{_rand_id}.jpg")
     blob.upload_from_filename(filepath)
